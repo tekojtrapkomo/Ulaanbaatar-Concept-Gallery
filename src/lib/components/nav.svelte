@@ -1,16 +1,25 @@
 <script>
-    import {animate} from 'motion';
+    import { animate } from 'motion';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import User from './user.svelte';
 
+    let monark = { monarkshow: false };
+
+    function showMonark() {
+        monark.monarkshow = !monark.monarkshow;
+    }
+
     onMount(() => {
-        animate('.left',{opacity: [0.2, 1], y: [20,0]},{duration: 0.8, easing: 'ease-in-out'});
+        animate('.top', {x: [-50, 0] ,opacity: [0, 1] }, { duration: 1})
     })
 </script>
 
-<nav transition:slide>
+<nav class="navi">
     <div class="top">
+        <div class="three-canvas">
+          <a href="/">  <img src="/MONARKLOGO.svg" alt="Monark-logo" width="160"></a>
+        </div>
         <User/>
     </div>
     <div class="middle">
@@ -26,7 +35,12 @@
         </div>
     </div>
     <div class="bottom">
-        <p>Created by <a href="https://battogtokh.co">Battogtokh</a></p>
+        {#if monark.monarkshow}
+        <div transition:slide="{{ duration:800 }}" class="monark">
+            <img src="/MONARKLOGO.svg" alt="Monark-logo" width="160">
+        </div>
+        {/if}
+        <p>Created by <a on:mouseenter|stopPropagation={showMonark} on:mouseleave|stopPropagation={showMonark} href="https://battogtokh.co">Battogtokh</a></p>
     </div>
 </nav>
 <style>
@@ -60,6 +74,7 @@
         width: 100%;
         flex-direction: column;
         gap: 0.8rem;
+        height: 50%;
     }
     .middle a{
         color: whitesmoke;
@@ -67,6 +82,15 @@
         font-size: 1rem;
         font-weight: 500;
         text-transform: uppercase;
+    }
+    .bottom {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+        position: relative;
     }
     .bottom p {
         color: whitesmoke;
@@ -83,9 +107,16 @@
     }
     .top {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: space-between;
         width: 100%;
-        flex-direction: column;
+        flex-direction: column;        
+    }
+    .three-canvas{
+    }
+    .monark{
+        position: absolute;
+        left: 0;
+        bottom: 1rem;
     }
 </style>

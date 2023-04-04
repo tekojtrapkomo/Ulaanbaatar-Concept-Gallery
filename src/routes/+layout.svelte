@@ -1,6 +1,6 @@
 <script>
     import '../app.css'
-    import Nav from '../components/nav.svelte';
+    import Nav from '$lib/components/nav.svelte';
     import '@fontsource/manrope'
 </script>
     <Nav/>

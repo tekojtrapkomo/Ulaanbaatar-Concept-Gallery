@@ -3,3 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'Neutral-Bold';
+    src: url($lib/fonts/NeutralFace-Bold.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Neutral';
+    src: url($lib/fonts/NeutralFace.woff2) format('woff2');
+}
+
+::selection {
+    background: #0102c8;
+    color: whitesmoke;
+  }

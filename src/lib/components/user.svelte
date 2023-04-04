@@ -1,9 +1,9 @@
 <div class="user">
     <div class="user__avatar">
-        <img src="https://i.makeagif.com/media/8-07-2015/1GnPq0.gif" alt="avatar">
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
     </div>
     <div class="user__info">
-        <a href="/" class="user__name">Login</a>
+        <a href="/auth" class="user__name">Нэвтрэх</a>
         <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="whitesmoke" d="M6.293 6.293a1 1 0 0 1 1.414 0L16 14.586V9a1 1 0 1 1 2 0v8a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h5.586L6.293 7.707a1 1 0 0 1 0-1.414z"></path></svg>
     </div>
 </div>
