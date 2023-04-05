@@ -4,8 +4,9 @@
     import Lenis from '@studio-freight/lenis';
     let visible = false;
     export let data;
-    import { getImageURL, imgURLONE } from '$lib/setting';
+    import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
+	import { slide } from 'svelte/transition';
     onMount(() => {
         
     const lenis = new Lenis()
@@ -17,7 +18,6 @@
     requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-        visible = true;
         animate('.card-1',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', allowWebkitAcceleration: true});
         animate('.card-2',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
         animate('.card-3',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
@@ -30,7 +30,14 @@
     });
 </script>
 
-<section class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
+<section transition:slide class="home-wrapper">
+    {#if data.user}
+    <div class="card-7">
+        <div class="card-7-text">
+            <h1>Сайн байна уу?&nbsp;{data.user.username}</h1>
+        </div>
+    </div>
+{/if}
     <div class="card-1">
         <div class="card-1-text">
             <h1>X-PLORE</h1>
@@ -73,13 +80,7 @@
             </div>
         </div>
     </div>
-    {#if data.user}
-        <div class="card-7">
-            <div class="card-7-text">
-                <h1>Сайн байна уу?</h1>
-            </div>
-        </div>
-    {/if}
+
     <Footer/>
 </section>
 
@@ -285,9 +286,9 @@
         font-family: 'Neutral-Bold', sans-serif;
         font-size: 5rem;
     }
-    .card-7-text p{
+    /* .card-7-text p{
         font-family: 'Manrope', sans-serif;
-    }
+    } */
     .odk {
         position: absolute;
         top: 0;

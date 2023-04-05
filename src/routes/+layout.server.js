@@ -6,6 +6,6 @@ export const load =  ({ locals }) => {
 	}
 
 	return {	
-		user: null,
+		user: undefined,
 	}
 };

@@ -1,8 +1,7 @@
 import {error, redirect} from '@sveltejs/kit';
-import { serializeNonPOJOs } from '$lib/setting.js';
 
 export const load = ({ locals }) => {
-	if (!locals.pb.authStore.isValid) {
+	if (locals.pb.authStore.isValid) {
 		throw redirect(303, '/');
 	};
 };

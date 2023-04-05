@@ -1,6 +1,5 @@
 <script>
-    export let data;
-    console.log(data)
+
 </script>
 
 <!-- {#if !data.user} -->
@@ -17,9 +16,11 @@
     <div class="user__avatar">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
     </div>
-    <div class="user__info">
-        <a href="/auth" class="user__name">Гарах</a>
-    </div>
+    <div class="logout">
+        <form action="/logout" method="POST">
+            <button type="submit" class="logout">Гарах</button>
+        </form>
+        </div>
 </div>
 <!-- {/if} -->
 
