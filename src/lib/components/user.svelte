@@ -1,8 +1,7 @@
 <script>
-
+    export let content;
 </script>
-
-<!-- {#if !data.user} -->
+{#if content === 'notLogged'}
 <div class="user">
     <div class="user__avatar">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
@@ -11,7 +10,8 @@
         <a href="/auth" class="user__name">Нэвтрэх</a>
     </div>
 </div>
-<!-- {:else} -->
+{/if}
+{#if content === 'logged'}
 <div class="user">
     <div class="user__avatar">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
@@ -22,8 +22,7 @@
         </form>
         </div>
 </div>
-<!-- {/if} -->
-
+{/if}
 <style>
     .user {
         display: flex;

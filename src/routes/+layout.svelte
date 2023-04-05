@@ -1,20 +1,13 @@
 <script>
     import '../app.css'
-    import Nav from '$lib/components/nav.svelte';
     import '@fontsource/manrope'
-    import { animate } from 'motion';
-	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import User from '$lib/components/user.svelte';
     let monark = { monarkshow: false };
-
+    export let data;
     function showMonark() {
         monark.monarkshow = !monark.monarkshow;
     }
-
-    onMount(() => {
-        animate('.top', {x: [-50, 0] ,opacity: [0, 1] }, { duration: 1})
-    })
 </script>
 
 <nav class="navi">
@@ -25,7 +18,15 @@
             </Canvas> -->
           <a href="/">  <img src="/MONARKLOGO.svg" alt="Monark-logo" width="160"></a>
         </div>
-        <User/>
+        {#if data.user}
+        <div class="user-loggedIn">
+            <User content="logged"/>
+        </div>
+        {:else}
+        <div class="user-notLoggedIn">
+            <User content="notLogged"/>
+        </div>
+        {/if}
     </div>
     <div class="middle">
         <div class="home">

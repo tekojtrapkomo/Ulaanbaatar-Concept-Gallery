@@ -2,13 +2,11 @@
     import {animate} from 'motion';
     import { onMount } from 'svelte';
     import Lenis from '@studio-freight/lenis';
-    let visible = false;
     export let data;
     import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
-	import { slide } from 'svelte/transition';
+	import OnLoad from '../lib/components/onLoad.svelte';
     onMount(() => {
-        
     const lenis = new Lenis()
     lenis.on('scroll', (e) => {
     // console.log(e)
@@ -18,7 +16,6 @@
     requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-        visible = true;
         animate('.card-1',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', allowWebkitAcceleration: true});
         animate('.card-2',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
         animate('.card-3',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
@@ -30,8 +27,8 @@
         animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity, allowWebkitAcceleration: true});
     });
 </script>
-
-<section transition:slide class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
+<OnLoad>
+<section class="home-wrapper">
     {#if data.user}
     <div class="card-7">
         <div class="card-7-text">
@@ -84,7 +81,7 @@
 
     <Footer/>
 </section>
-
+</OnLoad>
 <style>
     .home-wrapper {
         width: 82%;
@@ -135,7 +132,7 @@
         background-position: center;
         position: relative;
     }
-    .card-2::before {
+    .card-2::after {
   position: absolute;
   width: 90%;
   height: 80%;
@@ -247,8 +244,8 @@
         padding: 2rem;
         box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
         margin: 0.5rem 2rem 0.5rem 2rem;
-        width: 100px;
-        height: 100px;
+        width: 250px;
+        height: 250px;
         align-self: center;
         border-radius: 50%;
     }
@@ -261,7 +258,7 @@
     }
     .card-6-text a{
         font-family: 'Neutral-Bold', sans-serif;
-        font-size: 1.2rem;
+        font-size: 3rem;
         text-decoration: none;
         color: whitesmoke;
     }
