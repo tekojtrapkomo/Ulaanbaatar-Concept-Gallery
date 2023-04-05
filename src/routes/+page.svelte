@@ -18,6 +18,7 @@
     requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
+        visible = true;
         animate('.card-1',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', allowWebkitAcceleration: true});
         animate('.card-2',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
         animate('.card-3',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
@@ -30,7 +31,7 @@
     });
 </script>
 
-<section transition:slide class="home-wrapper">
+<section transition:slide class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
     {#if data.user}
     <div class="card-7">
         <div class="card-7-text">
