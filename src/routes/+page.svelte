@@ -5,7 +5,9 @@
     export let data;
     import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
+    let visible = false;
     onMount(() => {
+        visible = true;
     const lenis = new Lenis()
     lenis.on('scroll', (e) => {
     // console.log(e)
@@ -26,7 +28,7 @@
         animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity, allowWebkitAcceleration: true});
     });
 </script>
-<section class="home-wrapper">
+<section class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
     {#if data.user}
     <div class="card-7">
         <div class="card-7-text">
