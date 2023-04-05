@@ -9,7 +9,9 @@
         monark.monarkshow = !monark.monarkshow;
     }
 </script>
-<link rel="preload" href="$lib/fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<svelte:head>
+    <link rel="preload" href="$lib/fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</svelte:head>
 <nav class="navi">
     <div class="top">
         <div class="three-canvas">
