@@ -1,4 +1,5 @@
 <script>
+
 </script>
 <section class="register">
 <div class="modal-content-register">
@@ -21,6 +22,18 @@
       </label>
       <button class="button2" type="submit">Submit</button>
     </form>
+  </div>
+  <div class="modal-content-login">
+    <h3>Login</h3>
+<form class="loginn" action="?/login" method="POST">
+  <label for="email">
+    <input type="email" name="email" placeholder="E-Mail" autocomplete="off"/>
+  </label>
+  <label for="password">
+    <input type="password"  name="password" placeholder="Password" autocomplete="off" />
+  </label>
+  <button type="submit" class="button2">Login</button>
+  </form>
   </div>
 </section>
   <style>

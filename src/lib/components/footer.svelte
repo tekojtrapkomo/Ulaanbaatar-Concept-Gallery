@@ -13,7 +13,7 @@
 <style>
 
     footer{
-        position: fixed;
+        position: relative;
         bottom: 0;
         height: 3rem;
         background-color: antiquewhite;
@@ -24,7 +24,6 @@
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        width: 77%;
         margin: 0rem 2rem;
     }
     .lorem p {

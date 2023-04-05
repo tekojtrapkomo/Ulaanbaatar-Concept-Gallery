@@ -3,6 +3,8 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import User from './user.svelte';
+    import {Canvas} from '@threlte/core';
+	import Threelogo from './threelogo.svelte';
 
     let monark = { monarkshow: false };
 
@@ -18,6 +20,9 @@
 <nav class="navi">
     <div class="top">
         <div class="three-canvas">
+            <!-- <Canvas>
+                <Threelogo/>
+            </Canvas> -->
           <a href="/">  <img src="/MONARKLOGO.svg" alt="Monark-logo" width="160"></a>
         </div>
         <User/>
@@ -112,8 +117,8 @@
         width: 100%;
         flex-direction: column;        
     }
-    .three-canvas{
-    }
+    /* .three-canvas{
+    } */
     .monark{
         position: absolute;
         left: 0;
