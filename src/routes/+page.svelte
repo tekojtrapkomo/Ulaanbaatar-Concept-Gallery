@@ -5,7 +5,6 @@
     export let data;
     import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
-	import OnLoad from '../lib/components/onLoad.svelte';
     onMount(() => {
     const lenis = new Lenis()
     lenis.on('scroll', (e) => {
@@ -27,7 +26,6 @@
         animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity, allowWebkitAcceleration: true});
     });
 </script>
-<OnLoad>
 <section class="home-wrapper">
     {#if data.user}
     <div class="card-7">
@@ -81,7 +79,6 @@
 
     <Footer/>
 </section>
-</OnLoad>
 <style>
     .home-wrapper {
         width: 82%;
