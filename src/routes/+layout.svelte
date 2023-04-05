@@ -9,7 +9,7 @@
         monark.monarkshow = !monark.monarkshow;
     }
 </script>
-
+<link rel="preload" href="$lib/fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <nav class="navi">
     <div class="top">
         <div class="three-canvas">
