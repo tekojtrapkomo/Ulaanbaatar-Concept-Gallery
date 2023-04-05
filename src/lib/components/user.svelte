@@ -4,7 +4,6 @@
     </div>
     <div class="user__info">
         <a href="/auth" class="user__name">Нэвтрэх</a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="whitesmoke" d="M6.293 6.293a1 1 0 0 1 1.414 0L16 14.586V9a1 1 0 1 1 2 0v8a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h5.586L6.293 7.707a1 1 0 0 1 0-1.414z"></path></svg>
     </div>
 </div>
 
@@ -19,10 +18,11 @@
         backdrop-filter: blur(4.4px);
         -webkit-backdrop-filter: blur(4.4px);
         border: 1px solid rgba(255, 255, 255, 0.32);
+        width: 100%;
     }
     .user__avatar img {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         user-select: none;
         -webkit-user-drag: none;
@@ -45,10 +45,11 @@
 
     }
     .user__info a {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 500;
         color: whitesmoke;
         text-decoration: none;
+        font-family: 'Manrope', sans-serif;
     }
     
 </style>

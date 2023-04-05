@@ -63,7 +63,7 @@
         box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
         font-family: 'manrope';
         position: fixed;
-        width: 15%;
+        width: 18%;
         height: 100%;
         top: 0;
     }
