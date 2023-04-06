@@ -1,55 +1,51 @@
 <script>
-    import {animate} from 'motion';
+    import {animate, stagger} from 'motion';
     import { onMount } from 'svelte';
-    import Lenis from '@studio-freight/lenis';
     export let data;
     import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
+    import { afterNavigate } from '$app/navigation';
+
+    let cards;
+    let cards1;
+    let cards2;
+    let cards3;
     let visible = false;
-    onMount(() => {
+    afterNavigate(() => {
         visible = true;
-    const lenis = new Lenis()
-    lenis.on('scroll', (e) => {
-    // console.log(e)
-    })
-    function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
-        animate('.card-1',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', allowWebkitAcceleration: true});
-        animate('.card-2',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
-        animate('.card-3',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2, allowWebkitAcceleration: true});
-        animate('.card-4',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.3, allowWebkitAcceleration: true});
-        animate('.card-5',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.4, allowWebkitAcceleration: true});
-        animate('.card-6',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.4, allowWebkitAcceleration: true});
-        animate('.card-7',{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.6, allowWebkitAcceleration: true});
-        animate('.lorem',{opacity: [0, 1], y: [10,0]},{duration: 1.2, easing: 'ease-in-out', delay: 0.4, allowWebkitAcceleration: true});
-        animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity, allowWebkitAcceleration: true});
+        animate(cards,{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out'});
+        animate(cards1,{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2});
+        animate(cards2,{opacity: [0, 1], x: [10,0]},{duration: 0.8, easing: 'ease-in-out', delay: 0.2});
+        animate(cards3,{opacity: [0, 1]},{duration: 0.8, easing: 'ease-in-out', delay: stagger(1.5)});
+    });
+    onMount(() => {
+        animate('.lorem',{opacity: [0, 1], y: [10,0]},{duration: 1.2, easing: 'ease-in-out', delay: 0.4});
+        animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity});
     });
 </script>
-<section class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
+<section  class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
+    <div class="all-cards">
     {#if data.user}
-    <div class="card-7">
+    <div bind:this={cards} class="card-7">
         <div class="card-7-text">
             <h1>Сайн байна уу?&nbsp;{data.user.username}</h1>
         </div>
-    </div>
+    </div>  
 {/if}
-    <div class="card-1">
+    <div bind:this={cards} class="card-1">
         <div class="card-1-text">
             <h1>X-PLORE</h1>
             <p>Энэхүү сайт нь монгол хэлний сургалтын төвтэй холбоотой боломжийг олгохын тулд бүрдсэн болно.</p>
         </div>
     </div>
     <div class="card-2-wrap">
-        <div class="card-2">
+        <div  bind:this={cards1} class="card-2">
             <div class="card-2-text">
                 <h1>ГРАФИК ДИЗАЙН СУДЛАХ</h1>
                 <p>Энэхүү сайт нь монгол хэлний сургалтын төвтэй холбоотой боломжийг олгохын тулд бүрдсэн болно.</p>
             </div>
         </div>
-        <div class="card-3" style="background: url({imgURLONE(data.topic[0]?.collectionId, data.topic[0]?.id, data.topic[0]?.bg)});">
+        <div bind:this={cards2} class="card-3" style="background: url({imgURLONE(data.topic[0]?.collectionId, data.topic[0]?.id, data.topic[0]?.bg)});">
             <div class="card-3-text">
                 <div class="odk">
                     <img src="/odk.svg" alt="star67" width="40px"/>
@@ -59,14 +55,14 @@
             </div>
         </div>
     </div>
-    <div class="card-4-wrap">
+    <div bind:this={cards3} class="card-4-wrap">
         <div class="card-4">
             <div class="card-4-text">
-                <h1>УЛААНБААТАР КОНЦЕПТ ҮЗЭСГЭЛЭН</h1>
+                <h1>УЛААНБААТАР КОНЦЕПТ YЗЭСГЭЛЭН</h1>
                 <p>Бидний тухай</p>
             </div>
         </div>
-        <div class="card-5">
+        <div  class="card-5">
             <div class="card-5-text">
                 <h1>ХАМТРАН АЖИЛЛАХ</h1>
                 <p>Ажиллах хүсэлтээ ярилцая</p>
@@ -78,9 +74,11 @@
             </div>
         </div>
     </div>
-
+</div>
     <Footer/>
+    
 </section>
+
 <style>
     .home-wrapper {
         width: 82%;
@@ -167,6 +165,7 @@
         box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
         margin: 0.5rem 2rem 0.5rem 2rem;
         width: 30%;
+        position: relative;
     }
     .card-3-text{
         display: flex;
@@ -199,6 +198,7 @@
         box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
         margin: 0.5rem 2rem 0.5rem 2rem;
         width: 40%;
+        z-index: 99;
     }
     .card-4-text{
         display: flex;
@@ -222,6 +222,7 @@
         box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
         margin: 0.5rem 2rem 0.5rem 2rem;
         width: 40%;
+        z-index: 99;
     }
     .card-5-text{
         display: flex;

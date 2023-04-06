@@ -11,9 +11,6 @@
     import { navigating } from '$app/stores'
 	import Loading from '$lib/components/loading.svelte';
 </script>
-{#if $navigating}
-        <Loading/>
-        {/if}
 <nav class="navi">
     <div class="top">
         <div class="three-canvas">
@@ -53,6 +50,10 @@
         <p>Created by <a on:mouseenter|stopPropagation={showMonark} on:mouseleave|stopPropagation={showMonark} href="https://battogtokh.co">Battogtokh</a></p>
     </div>
 </nav>
+    {#if $navigating}
+        <Loading/>
+    {/if}
+
 <slot/>
 <style>
     .beta {
