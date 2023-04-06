@@ -8,10 +8,12 @@
     function showMonark() {
         monark.monarkshow = !monark.monarkshow;
     }
+    import { navigating } from '$app/stores'
+	import Loading from '$lib/components/loading.svelte';
 </script>
-<svelte:head>
-    <link rel="preload" href="$lib/fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-</svelte:head>
+{#if $navigating}
+        <Loading/>
+        {/if}
 <nav class="navi">
     <div class="top">
         <div class="three-canvas">
