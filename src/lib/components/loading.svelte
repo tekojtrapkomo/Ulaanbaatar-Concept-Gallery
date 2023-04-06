@@ -1,7 +1,6 @@
 <script>
     import { slide } from "svelte/transition";
     import { onMount } from "svelte";
-    import { sineInOut } from "svelte/easing";
 
     let loadingText = "Хуудас уншиж байна, та тyр хyлээгээрэй...😏";
 
@@ -9,7 +8,7 @@
         setTimeout(() => {
             loadingText = 'Өөөө.. За за refresh хийе...😭';
         }, 10000);
-        setTimeout(() => {
+        setInterval(() => {
             loadingText = 'F5 шд...😬';
         }, 15000);
         setTimeout(() => {  
@@ -18,7 +17,7 @@
     });
 </script>
 <section class="loadiing">
-<div transition:slide="{{ duration: 200, easing:sineInOut}}" class="loading">
+<div transition:slide="{{ duration: 200 }}" class="loading">
     <div class="textz">
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="svgSpinners3DotsFade0" fill="freeze" attributeName="opacity" begin="0;svgSpinners3DotsFade1.end-0.25s" dur="0.75s" values="1;.2"></animate></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="svgSpinners3DotsFade0.begin+0.15s" dur="0.75s" values="1;.2"></animate></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="svgSpinners3DotsFade1" fill="freeze" attributeName="opacity" begin="svgSpinners3DotsFade0.begin+0.3s" dur="0.75s" values="1;.2"></animate></circle></svg>
     <p>{loadingText}</p>

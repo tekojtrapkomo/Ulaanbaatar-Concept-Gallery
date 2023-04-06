@@ -5,7 +5,7 @@
             <div class="divide"></div>
             <p>© УЛААНБААТАР ХОТ, 2023 ОН</p>
             <div class="divide"></div>
-            <p><a href="mailto:someone@example.com">concept@monark.mn</a></p>
+            <p><a href="mailto:concept@monark.mn">concept@monark.mn</a></p>
         </div>
     </footer>
 
