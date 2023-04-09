@@ -1,3 +1,6 @@
+:root {
+    view-transition-name: none;
+}
 * {
     margin: 0;
     padding: 0;

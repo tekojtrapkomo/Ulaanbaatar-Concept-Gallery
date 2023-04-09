@@ -5,6 +5,7 @@
     import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
     import { afterNavigate } from '$app/navigation';
+	import Countdown from '../lib/components/countdown.svelte';
 
     let cards;
     let cards1;
@@ -50,6 +51,7 @@
                 <div class="odk">
                     <img src="/odk.svg" alt="star67" width="40px"/>
                 </div>
+                <Countdown/>
                 <p>ЭНЭ 7 ХОНОГИЙН СЭДЭВ —</p>
                 <a href="/">{data.topic[0].topicshow}</a>
             </div>
@@ -88,7 +90,8 @@
         background-color: antiquewhite;
     }
     .card-1{
-        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg);
+        background-color: aqua;
+        /* background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg); */
         background-size: cover;
         background-position: center;
         color: whitesmoke;
@@ -118,7 +121,8 @@
         height: 25%;
     }
     .card-2{
-        background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b9e13162544757.63d7dff0844ac.jpg);
+        background-color: aqua;
+        /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b9e13162544757.63d7dff0844ac.jpg); */
         color: whitesmoke;
         padding: 2rem 2rem 1rem 2rem;
         border-radius: 0.5rem;
@@ -166,6 +170,19 @@
         margin: 0.5rem 2rem 0.5rem 2rem;
         width: 30%;
         position: relative;
+    }
+    .card-3::after{
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        top: 25%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: -1;
+        content: "";
+        filter: blur(50px);
+        background: linear-gradient(90deg, rgb(99, 214, 4) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     }
     .card-3-text{
         display: flex;
@@ -263,7 +280,8 @@
         color: whitesmoke;
     }
     .card-7{
-        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg);
+        background-color: aqua;
+        /* background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg); */
         background-size: cover;
         background-position: center;
         color: whitesmoke;

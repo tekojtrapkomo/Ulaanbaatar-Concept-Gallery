@@ -1,8 +1,10 @@
 import PocketBase from 'pocketbase';
 import { serializeNonPOJOs } from '$lib/setting';
+import {POCKETBASE_URL} from '$env/static/private';
+
 
 export const handle = async ({ event, resolve }) => {
-	event.locals.pb = new PocketBase('https://hissing-machine.pockethost.io');
+	event.locals.pb = new PocketBase(POCKETBASE_URL);
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
 	try {
