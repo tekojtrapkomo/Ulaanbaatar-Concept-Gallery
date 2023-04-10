@@ -34,7 +34,7 @@
 // 		};
 //  };
 import { error } from "@sveltejs/kit";
-import { serializeNonPOJOs } from "$lib/setting.js";
+import { serializeNonPOJOs } from "$lib/server/setting.js";
 
 export const load = ({ locals }) => {
 	const getTopic = async () => {

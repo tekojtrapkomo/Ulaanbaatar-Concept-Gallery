@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-import { serializeNonPOJOs } from '$lib/setting';
+import { serializeNonPOJOs } from '$lib/server/setting';
 import {POCKETBASE_URL} from '$env/static/private';
 
 

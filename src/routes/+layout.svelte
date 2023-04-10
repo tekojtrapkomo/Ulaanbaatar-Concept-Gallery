@@ -36,6 +36,11 @@
         <div class="explore">
             <a href="/explore">Үзэх</a>
         </div>
+        {#if data.user}
+        <div class="submit">
+            <a href="/">Оруулах</a>
+        </div>
+        {/if}
         <div class="learn">
             <a href="/learn">Сургалт</a>
             <span class="beta">ALPHA</span>

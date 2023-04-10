@@ -35,6 +35,8 @@
         align-items: center;
         height: 100%;
         backdrop-filter: blur(5px);
+        position: absolute;
+        z-index: 1000;
     }
     .loading {
         z-index: 100;

@@ -2,11 +2,9 @@
     import {animate, stagger} from 'motion';
     import { onMount } from 'svelte';
     export let data;
-    import { imgURLONE } from '$lib/setting';
 	import Footer from '../lib/components/footer.svelte';
     import { afterNavigate } from '$app/navigation';
-	import Countdown from '../lib/components/countdown.svelte';
-
+	import Countdown from '$lib/components/countdown.svelte';
     let cards;
     let cards1;
     let cards2;
@@ -26,10 +24,10 @@
 </script>
 <section  class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
     <div class="all-cards">
-    {#if data.user}
+    {#if data.user} 
     <div bind:this={cards} class="card-7">
         <div class="card-7-text">
-            <h1>Сайн байна уу?&nbsp;{data.user.username}</h1>
+            <h1>Сайн байна уу?&nbsp;{data.user.name}</h1>
         </div>
     </div>  
 {/if}
@@ -46,7 +44,7 @@
                 <p>Энэхүү сайт нь монгол хэлний сургалтын төвтэй холбоотой боломжийг олгохын тулд бүрдсэн болно.</p>
             </div>
         </div>
-        <div bind:this={cards2} class="card-3" style="background: url({imgURLONE(data.topic[0]?.collectionId, data.topic[0]?.id, data.topic[0]?.bg)});">
+        <div bind:this={cards2} class="card-3">
             <div class="card-3-text">
                 <div class="odk">
                     <img src="/odk.svg" alt="star67" width="40px"/>
@@ -90,8 +88,8 @@
         background-color: antiquewhite;
     }
     .card-1{
-        background-color: aqua;
-        /* background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg); */
+        /* background-color: aqua; */
+        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg);
         background-size: cover;
         background-position: center;
         color: whitesmoke;
@@ -121,8 +119,8 @@
         height: 25%;
     }
     .card-2{
-        background-color: aqua;
-        /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b9e13162544757.63d7dff0844ac.jpg); */
+        /* background-color: aqua; */
+        background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b9e13162544757.63d7dff0844ac.jpg);
         color: whitesmoke;
         padding: 2rem 2rem 1rem 2rem;
         border-radius: 0.5rem;
@@ -133,19 +131,6 @@
         background-position: center;
         position: relative;
     }
-    .card-2::after {
-  position: absolute;
-  width: 90%;
-  height: 80%;
-  top: 25%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  z-index: -1;
-  content: "";
-  filter: blur(50px);
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-}
     .card-2-text{
         display: flex;
         flex-direction: column;
@@ -162,6 +147,7 @@
         font-size: 2rem;
     }
     .card-3{
+        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/72707463124167.5aa6d7f176f19.jpg);
         background-size: cover;
         color: whitesmoke;
         padding: 2rem;
@@ -280,8 +266,8 @@
         color: whitesmoke;
     }
     .card-7{
-        background-color: aqua;
-        /* background: url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9a7c9c166632521.641b5c82178a2.jpg); */
+        /* background-color: aqua; */
+        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/d34b60167313045.6426cf7c10bdf.jpg);
         background-size: cover;
         background-position: center;
         color: whitesmoke;
