@@ -16,6 +16,9 @@
 <div class="user">
     <div class="user__avatar">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
+        {#if $page.data.user.pro}
+        <span class="pro">PRO</span>
+        {/if}
         <a href="/profile">{$page.data.user.username}</a>
     </div>
     <div class="logout">
@@ -54,6 +57,14 @@
         padding: 1rem 1rem;
     }
     .user__avatar a {
+        font-size: 1rem;
+        font-weight: 500;
+        color: whitesmoke;
+        text-decoration: none;
+        font-family: 'Manrope', sans-serif;
+        margin-left: 0.5rem;
+    }
+    .pro {
         font-size: 1rem;
         font-weight: 500;
         color: whitesmoke;
