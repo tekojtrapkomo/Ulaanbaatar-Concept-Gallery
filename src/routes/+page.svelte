@@ -2,9 +2,10 @@
     import {animate, stagger} from 'motion';
     import { onMount } from 'svelte';
     export let data;
-	import Footer from '../lib/components/footer.svelte';
+    import Footer from '../lib/components/footer.svelte';
     import { afterNavigate } from '$app/navigation';
 	import Countdown from '$lib/components/countdown.svelte';
+    import {topicBG} from '$lib/utilities.js'
     let cards;
     let cards1;
     let cards2;
@@ -22,7 +23,7 @@
         animate('.odk',{transform: "rotate(360deg)"},{duration: 5, repeat: Infinity});
     });
 </script>
-<section  class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
+<section class="home-wrapper" style="visibility: {visible ? 'visible' : 'hidden'};">
     <div class="all-cards">
     {#if data.user} 
     <div bind:this={cards} class="card-7">
@@ -44,7 +45,9 @@
                 <p>Энэхүү сайт нь монгол хэлний сургалтын төвтэй холбоотой боломжийг олгохын тулд бүрдсэн болно.</p>
             </div>
         </div>
-        <div bind:this={cards2} class="card-3">
+        <div bind:this={cards2} class="card-3" style="background: url({topicBG(data.topic[0]?.collectionId, data.topic[0]?.id, data.topic[0]?.bg)});         background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;">
             <div class="card-3-text">
                 <div class="odk">
                     <img src="/odk.svg" alt="star67" width="40px"/>
@@ -147,7 +150,7 @@
         font-size: 2rem;
     }
     .card-3{
-        background: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/72707463124167.5aa6d7f176f19.jpg);
+        /* background: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/72707463124167.5aa6d7f176f19.jpg); */
         background-size: cover;
         color: whitesmoke;
         padding: 2rem;

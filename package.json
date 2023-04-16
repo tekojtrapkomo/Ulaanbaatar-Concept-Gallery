@@ -30,6 +30,7 @@
 	"dependencies": {
 		"@fontsource/manrope": "^4.5.13",
 		"@studio-freight/lenis": "^1.0.6",
+		"json-sanitizer": "^0.1.0",
 		"motion": "^10.15.5",
 		"pocketbase": "^0.13.1"
 	}

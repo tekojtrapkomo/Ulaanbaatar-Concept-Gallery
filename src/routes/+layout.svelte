@@ -38,8 +38,13 @@
         </div>
         {#if data.user}
         <div class="submit">
-            <a href="/">Оруулах</a>
+            <a href="/submit">Оруулах</a>
         </div>
+        {#if data.user.pro}
+        <div class="pro-only">
+            <a href="/pro-only">PRO-ONLY</a>
+        </div>  
+        {/if}
         {/if}
         <div class="learn">
             <a href="/learn">Сургалт</a>

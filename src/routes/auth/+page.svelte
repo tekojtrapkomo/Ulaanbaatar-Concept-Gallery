@@ -25,7 +25,7 @@
   </div>
   <div class="modal-content-login">
     <h3>Login</h3>
-<form class="loginn" action="?/login" method="POST" use:enhance>
+<form class="loginn" action="?/login" method="POST">
   <label for="email">
     <input type="email" name="email" placeholder="E-Mail" autocomplete="off"/>
   </label>

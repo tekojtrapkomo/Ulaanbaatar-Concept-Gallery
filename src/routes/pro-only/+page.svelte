@@ -1,18 +1,12 @@
 <script>
     export let data;
-    const alertIt = () => {
-        alert('Hello');
-    }
-
-
 </script>
 
 <div>
-    <h1>HELLOOO</h1>
+    <h1>PRO-ONLY AREA</h1>
     {#if data.user}
     <p>{data.user.name}</p>
     {/if}
-    <button on:click={alertIt}>ge</button>
 </div>
 
 

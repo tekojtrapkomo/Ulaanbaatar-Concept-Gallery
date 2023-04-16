@@ -1,5 +1,6 @@
 <script>
     export let content;
+    import { page } from '$app/stores';
 </script>
 {#if content === 'notLogged'}
 <div class="user">
@@ -15,6 +16,7 @@
 <div class="user">
     <div class="user__avatar">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="avatar">
+        <a href="/profile">{$page.data.user.username}</a>
     </div>
     <div class="logout">
         <form action="/logout" method="POST">
@@ -46,10 +48,18 @@
     .user__avatar{
         width: 50%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: flex-start;
         padding: 1rem 1rem;
+    }
+    .user__avatar a {
+        font-size: 1rem;
+        font-weight: 500;
+        color: whitesmoke;
+        text-decoration: none;
+        font-family: 'Manrope', sans-serif;
+        margin-left: 0.5rem;
     }
     .user__info{
         width: 50%;
